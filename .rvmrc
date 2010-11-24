@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+rvm --create 1.9.2-p0@can_debate
+
+if [[ -s can_debate.gems ]] ; then
+  rvm gemset import can_debate.gems 2>&1 >/dev/null
+fi
