@@ -2,6 +2,11 @@
 
 rvm --create 1.9.2-p0@can_debate
 
+if [[ ! -e config/database.yml ]] ; then
+  echo "No database config found, setting up defaults"
+  cp config/database.yml.example config/database.yml
+fi
+
 if [[ -s can_debate.gems ]] ; then
   rvm gemset import can_debate.gems 2>&1 >/dev/null
 fi
